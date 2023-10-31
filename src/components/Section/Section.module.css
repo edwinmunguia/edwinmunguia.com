@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  padding: 32px;
+  background-color: aqua;
+}
+
+.skewed {
+  transform: skewX(24deg);
+}
+
+.rounded {
+  border-radius: 22px;
+}
+
+.wrapped {
+    max-width: var(--max-width);
+}

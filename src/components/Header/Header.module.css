@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 12px;
+}
+
+.header__nav > ul {
+  display: flex;
+  gap: 7px;
+}
+
+.header__nav a {
+  padding: 7px;
+}
