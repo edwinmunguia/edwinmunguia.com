@@ -1,7 +1,12 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 32px;
-  background-color: aqua;
+}
+
+.inner {
+    width: 100%;
 }
 
 .skewed {
@@ -13,5 +18,5 @@
 }
 
 .wrapped {
-    max-width: var(--max-width);
+  max-width: var(--max-width);
 }

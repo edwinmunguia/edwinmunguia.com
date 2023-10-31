@@ -28,7 +28,7 @@ const Section: React.FC<PropsWithChildren<Props>> = ({
       
       ${width === "wrapped" ? styles.wrapped : ""} ${className}`}
     >
-      {children}
+      <div className={styles.inner}>{children}</div>
     </section>
   );
 };

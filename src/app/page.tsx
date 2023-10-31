@@ -1,26 +1,34 @@
 import styles from "./page.module.css";
 import Section from "@/components/Section/Section";
+import projects from "../data/projects.json";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Section type="rounded" className={styles.about}>
-        <div className={styles.about__content}>
-          <h1 className={styles.about__title}>Hi! I'm Edwin.</h1>
-          <p className={styles.about__description}>Full-Stack MERN Developer</p>
+      <Section type="rounded" width="wrapped" className={styles.aboutSection}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>Hi! I'm Edwin Munguia</h1>
+          <p className={styles.about}>
+            
+            .
+          </p>
         </div>
 
-        <ul className={styles.about__social}>
-          <li>
-            <a href="">Twitter</a>
-          </li>
-          <li>
-            <a href="">Github</a>
-          </li>
-          <li>
-            <a href="">LinkedIn</a>
-          </li>
-        </ul>
+     
+      </Section>
+
+      <Section
+        type="rounded"
+        width="wrapped"
+        className={styles.projectsSection}
+      >
+        <div className={styles.content}>
+          <h1 className={styles.title}>Projects I've Built</h1>
+        </div>
+
+        {projects.map((project) => (
+          <li>{project.title}</li>
+        ))}
       </Section>
     </main>
   );

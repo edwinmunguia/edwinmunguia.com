@@ -1,4 +1,21 @@
 .main {
   width: 100%;
-  background: var(--accent-background);
 }
+
+.content {
+  max-width: 450px;
+  margin-bottom: 17px;
+}
+
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 7px;
+}
+
+.about {
+  margin-bottom: 20px;
+}
+

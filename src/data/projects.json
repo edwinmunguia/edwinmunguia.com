@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Guru Delivery",
+    "description": "A cross-platform delivery app",
+    "image": "https://i.imgur.com/5XZCQ9F.png",
+    "stack": ["React Native", "React Js", "Firebase"],
+    "url": "https://guru.delivery"
+  }
+]
