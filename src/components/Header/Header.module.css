@@ -43,7 +43,6 @@
   font-weight: 700;
   color: #868686;
   gap: 10px;
-
 }
 
 .navLink.active .navSep {
@@ -57,12 +56,17 @@
 }
 
 .navLink.active {
-  color: #FFF;
+  color: #fff;
 }
 
 .social {
   display: flex;
   position: relative;
-  gap: 12px;
+  justify-content: space-between;
   margin-top: 17px;
+}
+
+.xIcon svg {
+  fill: #fff;
+  stroke: #fff;
 }

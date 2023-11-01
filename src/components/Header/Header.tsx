@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import { usePathname } from "next/navigation";
+import Logo from "../../assets/images/em.logo.svg";
+import GithubIcon from "../Icons/GithubIcon/GithubIcon";
+import XIcon from "../Icons/XIcon/XIcon";
+import LinkedInIcon from "../Icons/LinkedInIcon/LinkedInIcon";
+import InstagramIcon from "../Icons/InstagramIcon/InstagramIcon";
 
 const Header = () => {
   const currentRoute = usePathname();
@@ -14,9 +19,7 @@ const Header = () => {
         <Image
           className={styles.logo}
           alt="Edwin Munguia"
-          src="/images/em.logo.svg"
-          width={100}
-          height={55}
+          src={Logo}
           priority
         />
         <h1>Edwin Munguia</h1>
@@ -71,13 +74,24 @@ const Header = () => {
 
       <ul className={styles.social}>
         <li>
-          <a href="">Twitter</a>
+          <a href="">
+            <XIcon />
+          </a>
         </li>
         <li>
-          <a href="">Github</a>
+          <a href="">
+            <InstagramIcon />
+          </a>
         </li>
         <li>
-          <a href="">LinkedIn</a>
+          <a href="">
+            <GithubIcon />
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <LinkedInIcon />
+          </a>
         </li>
       </ul>
     </header>
