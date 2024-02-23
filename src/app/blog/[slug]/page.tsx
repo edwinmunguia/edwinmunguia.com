@@ -10,6 +10,7 @@ import { formatDate, getPostsMetadata } from "@/core/helpers";
 import styles from "./page.module.css";
 import LangIcon from "@/components/LangIcon/LangIcon";
 import DateIcon from "@/components/Icons/DateIcon/DateIcon";
+import Image from "next/image";
 
 type Props = {
   params: {
@@ -95,7 +96,7 @@ const PostPage: NextPage<Props> = ({ params }) => {
           </div>
         </div>
         <div className={styles.postCover}>
-          <img src={post.cover} alt={post.title} />
+          <Image src={post.cover} alt={post.title} />
         </div>
       </div>
 
