@@ -59,14 +59,17 @@
 }
 
 .postCover {
+  position: relative;
+  width: 100%;
   max-width: 800px;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .postCover img {
-  position: relative;
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
 
 .postCover img:before {
@@ -208,6 +211,4 @@
 .postContent a:hover::before {
   width: 110%;
   background: var(--gc-3);
-  /* height: 110%; */
-  /* border-radius: 4px; */
 }
