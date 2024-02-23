@@ -1,0 +1,53 @@
+.LangIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  background-color: #999;
+  border-radius: 7px;
+}
+
+.LangIcon__icon,
+.LangIcon__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.javascript {
+  background-color: #f0db4f;
+}
+
+.reactjs {
+  color: #61dafb !important;
+  background-color: #000;
+}
+
+.typescript {
+  background-color: #3178c6;
+}
+
+.nodejs {
+  background-color: #3c873a;
+}
+
+.express {
+  background-color: #000;
+}
+
+.mongodb {
+  background-color: #4db33d;
+}
+
+.expo {
+  background-color: #000;
+}
+
+.firebase {
+  background-color: #f5820d;
+}
+
+.me {
+  background-color: #4B369D;
+}

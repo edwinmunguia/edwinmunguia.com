@@ -1,5 +1,27 @@
 .header {
-  max-width: 290px;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19px 0;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+@media (max-width: 940px) {
+  .header__wrapper {
+    padding: 19px 20px;
+  }
 }
 
 .header h1 {
@@ -12,24 +34,10 @@
   margin-inline-end: 0px;
 }
 
-.header p {
-  padding-top: 2px;
-}
-
-.logo {
-  margin-bottom: 10px;
-}
-
-.headerTop {
-  width: 100%;
-  max-width: var(--max-width);
-}
-
 .header__nav > ul {
   display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin: 42px 0;
+  align-items: center;
+  gap: 12px;
 }
 
 .header__nav li {
@@ -38,35 +46,35 @@
 
 .navLink {
   display: flex;
-  align-items: center;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #868686;
-  gap: 10px;
-}
-
-.navLink.active .navSep {
-  width: 48px;
-}
-
-.navSep {
-  width: 24px;
-  height: 1px;
-  background-color: #868686;
-}
-
-.navLink.active {
+  font-size: 16px;
+  font-weight: 500;
   color: #fff;
 }
 
-.social {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  margin-top: 17px;
+.navLink.active .navNumber {
+  background: var(--accent-gradient);
+  background-position: 80% 20%;
+  background-size: 300%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientTextRotation 2s linear infinite alternate;
 }
 
-.xIcon svg {
-  fill: #fff;
-  stroke: #fff;
+.navNumber {
+  color: #c1c1c1;
+  font-weight: 600;
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+@keyframes gradientTextRotation {
+  0% {
+    background-position: 80% 20%;
+  }
+
+  to {
+    background-position: 20% 80%;
+  }
 }

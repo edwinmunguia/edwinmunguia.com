@@ -1,0 +1,56 @@
+.postItem {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  padding: 27px 17px 24px 35px;
+  gap: 12px;
+  background: var(--accent-background);
+  border-radius: 15px;
+  transition-property: transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+.postItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.postCategoryIconWrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-20%, -50%);
+}
+
+.linkDescription {
+  margin-left: 17px;
+}
+
+.postLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--foreground);
+  transition: color 0.2s ease-in-out;
+}
+
+.postTags {
+  display: flex;
+  gap: 7px;
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+.postTags .tag {
+  color: #777;
+}
+
+.postDate {
+  color: var(--silver);
+  margin-left: auto;
+  font-size: 0.8rem;
+}

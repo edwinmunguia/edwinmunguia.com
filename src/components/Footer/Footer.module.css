@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #868686;
+}
+
+

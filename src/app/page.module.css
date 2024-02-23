@@ -1,21 +1,110 @@
-.main {
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
-.content {
-  max-width: 450px;
-  margin-bottom: 17px;
+.section {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width);
 }
 
+.largeSpacedSection {
+  padding: 3.5rem 0;
+}
+
+.mediumSpacedSection {
+  padding: 3rem 0;
+}
+
+.smallSpacedSection {
+  padding: 2.5rem 0;
+}
+
+.projectSection {
+  max-width: var(--max-width);
+}
+
+.hero {
+  background-color: var(--accent-background);
+  padding: 3rem;
+  border-radius: 30px;
+}
 
 .title {
-  font-size: 24px;
-  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  font-size: 58px;
+  letter-spacing: -3px;
+  font-weight: 700;
   line-height: 1.25;
   margin-bottom: 7px;
+  background: var(--accent-gradient);
+  background-position: 80% 20%;
+  background-size: 300%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientTextRotation 4s linear infinite alternate;
 }
 
-.about {
-  margin-bottom: 20px;
+.subtitle {
+  font-size: 21px;
+  line-height: 35px;
+  margin-bottom: 5px;
 }
 
+.subtitle span {
+  color: var(--gc-3);
+}
+
+.social {
+  display: flex;
+  position: relative;
+  gap: 17px;
+  margin-top: 40px;
+}
+
+.stackList {
+  display: flex;
+  gap: 17px;
+}
+
+.stackList li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stackList span {
+  font-size: 12px;
+  color: var(--silver);
+  margin-top: 5px;
+
+}
+
+.stackList svg {
+  width: 24px;
+  height: 24px;
+}
+
+.project {
+  display: block;
+  background-color: #1a1a1a;
+  border-radius: 30px;
+  max-width: 200px;
+  min-height: 200px;
+  padding: 40px;
+}
+
+@keyframes gradientTextRotation {
+  0% {
+    background-position: 80% 20%;
+  }
+
+  to {
+    background-position: 20% 80%;
+  }
+}

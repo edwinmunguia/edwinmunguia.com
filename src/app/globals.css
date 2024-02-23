@@ -1,33 +1,31 @@
 :root {
   --max-width: 900px;
   --border-radius: 12px;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
   --foreground: #ccc;
+  --silver: rgb(128, 128, 128);
   --background: #101214;
-  --accent-background: #222222;
+  --accent-background: #1c1b20;
+  --gc-1: #fdd000;
+  --gc-1: oklch(87% 0.2 93);
+  --gc-2: #e100d2;
+  --gc-2: oklch(63% 0.29 332);
+  --gc-3: #4e00ff;
+  --gc-3: oklch(51% 0.285 265);
   --gradient-purple-magenta: linear-gradient(
     128.87deg,
     #512bd4 14.05%,
     #d600aa 89.3%
   );
-  --gradient-magenta-flamingo: linear-gradient(
-    128.87deg,
-    #512bd4 14.05%,
-    #d600aa 89.3%
-  );
-  --gradient-purple-blue: linear-gradient(
-    128.87deg,
-    #512bd4 14.05%,
-    #d600aa 89.3%
-  );
-  --gradient-flamingo-purple: linear-gradient(
-    128.87deg,
-    #512bd4 14.05%,
-    #d600aa 89.3%
-  );
-  --gradient-blue-purple: linear-gradient(
-    128.87deg,
-    #512bd4 14.05%,
-    #d600aa 89.3%
+  --accent-gradient: linear-gradient(
+    42deg,
+    var(--gc-1) 12%,
+    var(--gc-2) 48%,
+    var(--gc-3) 87%
   );
   --gradient-red-yellow: linear-gradient(
     90deg,
@@ -57,15 +55,28 @@ body {
   color: var(--foreground);
   font-size: 18px;
   -webkit-text-size-adjust: 100%;
-  min-height: 100%;
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  max-width: 1000px;
-  grid-column-gap: 5vw;
-  padding: 10vh 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.App__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 100px 0 40px;
+}
+
+@media (max-width: 940px) {
+  .App__content {
+    padding: 100px  20px 40px!important;
+  }
 }
 
 ul {
@@ -73,16 +84,18 @@ ul {
 }
 
 a {
-  position: relative;
+  
   color: inherit;
   text-decoration: none;
 }
 
-a.highlighted {
+.highlighted {
+  display: inline-block;
+  position: relative;
   transition: none;
 }
 
-a.highlighted::after {
+.highlighted::after {
   content: "";
   display: block;
   position: absolute;
@@ -90,15 +103,5 @@ a.highlighted::after {
   bottom: -1px;
   width: 100%;
   height: 2px;
-  background: #4e00ff;
+  background: var(--gc-1);
 }
-
-a.highlighted:hover {
-  background: none;
-}
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
