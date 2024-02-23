@@ -28,8 +28,6 @@ const CodeHighlighter = ({
     const language = children["props"]["className"]?.replace("lang-", "");
     const content = children["props"]["children"];
 
-    console.log(language);
-
     return (
       <SyntaxHighlighter language={language} style={oneDark}>
         {content}
@@ -96,7 +94,12 @@ const PostPage: NextPage<Props> = ({ params }) => {
           </div>
         </div>
         <div className={styles.postCover}>
-          <Image src={post.cover} alt={post.title} />
+          <Image
+            src={post.cover}
+            alt={post.title}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
       </div>
 
