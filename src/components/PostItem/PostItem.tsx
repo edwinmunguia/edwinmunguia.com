@@ -21,7 +21,7 @@ const PostItem: React.FC<BlogPost> = ({
         </Link>
         <div className={styles.postTags}>
           {tags.map((tag) => (
-            <div className={styles.tag}>
+            <div key={tag} className={styles.tag}>
               <span>#</span>
               {tag}
             </div>

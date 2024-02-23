@@ -25,7 +25,7 @@ export default function Home() {
         className={`${styles.hero} ${styles.section} ${styles.largeSpacedSection} ${styles.introSection}`}
       >
         <div className={styles.about}>
-          <h2>I'm</h2>
+          <h2>I&apos;m</h2>
           <h1 className={styles.title}>Edwin Munguia</h1>
           <p>
             Full Stack Developer Specialized in{" "}
