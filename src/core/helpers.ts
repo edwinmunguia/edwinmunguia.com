@@ -13,7 +13,7 @@ export const getPostsMetadata = (): BlogPost[] => {
     .filter((d) => d.isDirectory())
     .map((d) => d.name);
 
-  const posts: BlogPost[] = slugs.map((slug) => {
+  const posts = slugs.map((slug) => {
     const langFiles = fs
       .readdirSync(path.join(POSTS_FOLDER, slug))
       .filter((f) => f.endsWith(".md"));
