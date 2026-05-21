@@ -4,6 +4,8 @@ export interface BlogPost {
   content: string;
   date: string;
   slug: string;
+  defaultLang: string;
+  langs: string[];
   category: string;
   cover: string;
   tags: string[];

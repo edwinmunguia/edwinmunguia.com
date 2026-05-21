@@ -9,6 +9,7 @@ const PostItem: React.FC<BlogPost> = ({
   date,
   category,
   tags,
+  defaultLang,
 }) => {
   return (
     <div className={styles.postItem}>
@@ -16,7 +17,7 @@ const PostItem: React.FC<BlogPost> = ({
         <LangIcon lang={category} />
       </div>
       <div className={styles.linkDescription}>
-        <Link className={styles.postLink} href={`/blog/${slug}`}>
+        <Link className={styles.postLink} href={`/posts/${defaultLang}/${slug}`}>
           <div className={styles.postTitle}>{title}</div>
         </Link>
         <div className={styles.postTags}>

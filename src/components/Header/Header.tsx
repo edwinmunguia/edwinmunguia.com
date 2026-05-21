@@ -36,9 +36,9 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/blog"
+                href="/posts"
                 className={`${styles.navLink} ${
-                  currentRoute.startsWith("/blog") ? styles.active : ""
+                  currentRoute.startsWith("/posts") ? styles.active : ""
                 }`}
               >
                 <span className={styles.navNumber}>02</span>

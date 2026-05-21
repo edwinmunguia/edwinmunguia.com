@@ -106,9 +106,20 @@
 
 .postContent p,
 .postContent blockquote,
-.postContent pre {
+.postContent pre,
+.postContent aside {
   margin-top: 26px !important;
   margin-bottom: 26px !important;
+}
+
+.postContent aside {
+  border-left: 3px solid var(--silver);
+  padding: 10px 16px;
+  color: var(--silver);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 26px;
+  border-radius: 0 6px 6px 0;
 }
 
 .postContent img {
@@ -171,6 +182,34 @@
 .postContent cite::before {
   content: "— ";
   margin-right: 7px;
+}
+
+.langSwitcher {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.langBtn {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--silver);
+  color: var(--silver);
+  transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.langBtn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.langBtnActive {
+  border-color: var(--gc-3);
+  color: var(--gc-3);
 }
 
 .postContent a {
