@@ -80,7 +80,8 @@ const PostPage: NextPage<Props> = async ({ params }) => {
               src={post.cover}
               alt={post.title}
               fill
-              objectFit="cover"
+              sizes="(max-width: 640px) 100vw, 680px"
+              style={{ objectFit: "cover" }}
             />
           </div>
         )}
