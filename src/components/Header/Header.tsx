@@ -22,6 +22,11 @@ const Header = () => {
                 Blog
               </Link>
             </li>
+            <li>
+              <Link href="/about" className={`${styles.link} ${path === "/about" ? styles.active : ""}`}>
+                About
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function Home() {
   const posts = getPostsMetadata();
   const featured = projects[0]!;
-  const rest = projects.slice(1);
 
   return (
     <div className={styles.page}>
@@ -53,38 +52,7 @@ export default function Home() {
         </a>
       </section>
 
-      {/* ── WORK ─────────────────────────────────────── */}
-      {rest.length > 0 && (
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Work</h2>
-          </div>
-          <div className={styles.projectGrid}>
-            {rest.map((project) => (
-              <a
-                key={project.title}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.projectCard}
-              >
-                <p className={styles.cardTitle}>{project.title}</p>
-                <p className={styles.cardDesc}>{project.description}</p>
-                <div className={styles.stack}>
-                  {project.stack.map((s) => (
-                    <span key={s} className={styles.stackTag}>{s}</span>
-                  ))}
-                </div>
-                <span className={styles.cardLink}>
-                  {project.url.replace("https://", "")} ↗
-                </span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ── WRITING ──────────────────────────────────── */}
+{/* ── WRITING ──────────────────────────────────── */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Writing</h2>
