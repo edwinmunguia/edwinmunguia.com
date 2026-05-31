@@ -8,10 +8,10 @@ import { formatDate, getPostContent, getPostsMetadata } from "@/core/helpers";
 import styles from "./page.module.css";
 
 type Props = {
-  params: {
+  params: Promise<{
     lang: string;
     slug: string;
-  };
+  }>;
 };
 
 const CodeHighlighter = ({
@@ -43,8 +43,9 @@ export const generateStaticParams = async () => {
   );
 };
 
-const PostPage: NextPage<Props> = ({ params }) => {
-  const post = getPostContent(params.slug, params.lang);
+const PostPage: NextPage<Props> = async ({ params }) => {
+  const { slug, lang } = await params;
+  const post = getPostContent(slug, lang);
 
   return (
     <div className={styles.post}>
@@ -62,7 +63,7 @@ const PostPage: NextPage<Props> = ({ params }) => {
                 <Link
                   key={l}
                   href={`/posts/${l}/${post.slug}`}
-                  className={`${styles.langBtn} ${l === params.lang ? styles.langBtnActive : ""}`}
+                  className={`${styles.langBtn} ${l === lang ? styles.langBtnActive : ""}`}
                 >
                   {l.toUpperCase()}
                 </Link>
