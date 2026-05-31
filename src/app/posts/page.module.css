@@ -1,14 +1,23 @@
 .blog {
-  width: 100%;
   max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 72px 24px 0;
 }
 
 .blogTitle {
-    font-size: 21px;
-    line-height: 35px;
-    margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
 }
 
 .blogTitle span {
-    color: var(--gc-3);
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .blog {
+    padding: 48px 20px 0;
+  }
 }

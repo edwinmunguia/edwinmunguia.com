@@ -1,31 +1,33 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans, DM_Mono } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["300", "400", "500", "600"],
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  variable: "--font-dm-mono",
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
-  title: "Edwin Munguia | Full Stack Developer",
-  description: "Tutorials, Opinions, Projects and Bit More. Welcome!",
+  title: "Edwin Munguia — Full Stack Developer",
+  description: "Full Stack Developer based in Tegucigalpa, Honduras. I build mobile and web apps with JavaScript, React Native, and Firebase.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="App">
-          <Header />
-          <div className="App__content">
-            {children}
-          </div>
-          <Footer />
-        </div>
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

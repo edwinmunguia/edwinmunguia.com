@@ -1,112 +1,98 @@
 import styles from "./page.module.css";
 import projects from "../../projects/projects.json";
-import XIcon from "@/components/Icons/XIcon/XIcon";
-import InstagramIcon from "@/components/Icons/InstagramIcon/InstagramIcon";
-import GithubIcon from "@/components/Icons/GithubIcon/GithubIcon";
-import LinkedInIcon from "@/components/Icons/LinkedInIcon/LinkedInIcon";
 import { getPostsMetadata } from "@/core/helpers";
 import PostList from "@/components/PostList/PostList";
-import JsIcon from "@/components/Icons/JsIcon/JsIcon";
-import ReactIcon from "@/components/Icons/ReactIcon/ReactIcon";
-import NodeIcon from "@/components/Icons/NodeIcon/NodeIcon";
-import TypescriptIcon from "@/components/Icons/TypescriptIcon/TypescriptIcon";
-import ExpoIcon from "@/components/Icons/ExpoIcon/ExpoIcon";
-import ExpressIcon from "@/components/Icons/ExpressIcon/ExpressIcon";
-import MongoIcon from "@/components/Icons/MongoIcon/MongoIcon";
-import { GITHUB_URL, INSTAGRAM_URL, LINKED_IN_URL, X_URL } from "@/core/consts";
-import FirebaseIcon from "@/components/Icons/FirebaseIcon/FirebaseIcon";
+import { GITHUB_URL, X_URL, LINKED_IN_URL, INSTAGRAM_URL } from "@/core/consts";
+import Link from "next/link";
 
 export default function Home() {
   const posts = getPostsMetadata();
+  const featured = projects[0]!;
+  const rest = projects.slice(1);
 
   return (
-    <main className={styles.home}>
-      <section
-        className={`${styles.hero} ${styles.section} ${styles.largeSpacedSection} ${styles.introSection}`}
-      >
-        <div className={styles.about}>
-          <h2>I&apos;m</h2>
-          <h1 className={styles.title}>Edwin Munguia</h1>
-          <p>
-            Full Stack Developer Specialized in{" "}
-            <span className="highlighted">JavaScript</span>.
+    <div className={styles.page}>
+
+      {/* ── HERO ─────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className={styles.heroLeft}>
+          <p className={styles.name}>Edwin Munguia</p>
+          <h1 className={styles.heading}>
+            I build apps people<br />use every day.
+          </h1>
+          <p className={styles.role}>
+            Full Stack Developer
+            <span className={styles.dot}>·</span>
+            Tocoa, HN
           </p>
+          <ul className={styles.social}>
+            <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href={X_URL} target="_blank" rel="noopener noreferrer">X</a></li>
+            <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href={LINKED_IN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
         </div>
 
-        <ul className={styles.social}>
-          <li>
-            <a target="_blank" href={X_URL}>
-              <XIcon />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href={INSTAGRAM_URL}>
-              <InstagramIcon />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href={GITHUB_URL}>
-              <GithubIcon />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href={LINKED_IN_URL}>
-              <LinkedInIcon />
-            </a>
-          </li>
-        </ul>
+        <a
+          href={featured.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.featuredCard}
+        >
+          <p className={styles.cardLabel}>Featured Work</p>
+          <p className={styles.cardTitle}>{featured.title}</p>
+          <p className={styles.cardDesc}>{featured.description}</p>
+          <div className={styles.stack}>
+            {featured.stack.map((s) => (
+              <span key={s} className={styles.stackTag}>{s}</span>
+            ))}
+          </div>
+          <span className={styles.cardLink}>
+            {featured.url.replace("https://", "")} ↗
+          </span>
+        </a>
       </section>
 
-      <section
-        className={`${styles.section} ${styles.smallSpacedSection} ${styles.projectSection}`}
-      >
-        <h2 className={styles.subtitle}>
-          My Stack<span>.</span>
-        </h2>
-        <ul className={styles.stackList}>
-          <li>
-            <JsIcon />
-            <span>JavaScript</span>
-          </li>
-          <li>
-            <TypescriptIcon />
-            <span>TypeScript</span>
-          </li>
-          <li>
-            <ReactIcon />
-            <span>React / React Native</span>
-          </li>
-          <li>
-            <ExpoIcon />
-            <span>Expo</span>
-          </li>
-          <li>
-            <NodeIcon />
-            <span>Node Js</span>
-          </li>
-          <li>
-            <ExpressIcon />
-            <span>Express Js</span>
-          </li>
-          <li>
-            <MongoIcon />
-            <span>MongoDB</span>
-          </li>
-          <li>
-            <FirebaseIcon />
-            <span>Firebase</span>
-          </li>
-        </ul>
-      </section>
+      {/* ── WORK ─────────────────────────────────────── */}
+      {rest.length > 0 && (
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Work</h2>
+          </div>
+          <div className={styles.projectGrid}>
+            {rest.map((project) => (
+              <a
+                key={project.title}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectCard}
+              >
+                <p className={styles.cardTitle}>{project.title}</p>
+                <p className={styles.cardDesc}>{project.description}</p>
+                <div className={styles.stack}>
+                  {project.stack.map((s) => (
+                    <span key={s} className={styles.stackTag}>{s}</span>
+                  ))}
+                </div>
+                <span className={styles.cardLink}>
+                  {project.url.replace("https://", "")} ↗
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
-      <section
-        className={`${styles.section} ${styles.smallSpacedSection} ${styles.stackSection}`}
-      >
-        <h2 className={styles.subtitle}>
-          Latest writings<span>.</span>
-        </h2>
+      {/* ── WRITING ──────────────────────────────────── */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Writing</h2>
+          <Link href="/posts" className={styles.sectionMore}>All posts →</Link>
+        </div>
         <PostList posts={posts} />
       </section>
-    </main>
+
+    </div>
   );
 }

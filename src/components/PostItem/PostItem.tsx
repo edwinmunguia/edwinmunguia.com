@@ -1,35 +1,23 @@
 import Link from "next/link";
 import { BlogPost } from "@/core/interfaces";
 import styles from "./PostItem.module.css";
-import LangIcon from "../LangIcon/LangIcon";
 
-const PostItem: React.FC<BlogPost> = ({
-  title,
-  slug,
-  date,
-  category,
-  tags,
-  defaultLang,
-}) => {
+const PostItem: React.FC<BlogPost> = ({ title, slug, date, langs, defaultLang }) => {
   return (
     <div className={styles.postItem}>
-      <div className={styles.postCategoryIconWrapper}>
-        <LangIcon lang={category} />
+      <Link href={`/posts/${defaultLang}/${slug}`} className={styles.title}>
+        {title}
+      </Link>
+      <div className={styles.meta}>
+        <span className={styles.date}>{date}</span>
+        {langs.length > 1 && (
+          <div className={styles.langs}>
+            {langs.map((l) => (
+              <span key={l} className={styles.lang}>{l.toUpperCase()}</span>
+            ))}
+          </div>
+        )}
       </div>
-      <div className={styles.linkDescription}>
-        <Link className={styles.postLink} href={`/posts/${defaultLang}/${slug}`}>
-          <div className={styles.postTitle}>{title}</div>
-        </Link>
-        <div className={styles.postTags}>
-          {tags.map((tag) => (
-            <div key={tag} className={styles.tag}>
-              <span>#</span>
-              {tag}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className={styles.postDate}>{date.toString()}</div>
     </div>
   );
 };

@@ -1,9 +1,20 @@
 [
   {
     "title": "Guru Delivery",
-    "description": "A cross-platform delivery app",
-    "image": "https://i.imgur.com/5XZCQ9F.png",
-    "stack": ["React Native", "React Js", "Firebase"],
+    "description": "Cross-platform delivery app for merchants, customers and delivery agents.",
+    "stack": ["React Native", "React", "Firebase"],
     "url": "https://guru.delivery"
+  },
+  {
+    "title": "Guru Dashboard",
+    "description": "Internal admin panel for managing orders, settlements and merchants in real time.",
+    "stack": ["React", "TypeScript", "Firebase"],
+    "url": "https://guru.delivery"
+  },
+  {
+    "title": "This Site",
+    "description": "Personal site and blog. Built with Next.js, statically generated, zero dependencies bloat.",
+    "stack": ["Next.js", "TypeScript"],
+    "url": "https://edwinmunguia.dev"
   }
 ]

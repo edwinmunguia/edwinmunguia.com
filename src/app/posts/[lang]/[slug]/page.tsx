@@ -2,12 +2,9 @@ import { NextPage } from "next";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Markdown from "markdown-to-jsx";
-import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
 import { formatDate, getPostContent, getPostsMetadata } from "@/core/helpers";
-import LangIcon from "@/components/LangIcon/LangIcon";
-import DateIcon from "@/components/Icons/DateIcon/DateIcon";
 import styles from "./page.module.css";
 
 type Props = {
@@ -46,35 +43,19 @@ export const generateStaticParams = async () => {
   );
 };
 
-const LANG_LABELS: Record<string, string> = {
-  en: "EN",
-  es: "ES",
-};
-
 const PostPage: NextPage<Props> = ({ params }) => {
   const post = getPostContent(params.slug, params.lang);
 
   return (
     <div className={styles.post}>
+
+      {/* ── HEADER ───────────────────────────────────── */}
       <div className={styles.postHeader}>
-        <div className={styles.postTitleCategory}>
-          <div className={styles.postCategory}>
-            <LangIcon lang={post.category} />
-          </div>
-          <div className={styles.postTitle}>{post.title}</div>
-          <div className={styles.postInfo}>
-            <div className={styles.postDate}>
-              <DateIcon /> {formatDate(post.date)}
-            </div>
-            <div className={styles.postTags}>
-              {post.tags.map((tag) => (
-                <div className={styles.tag} key={tag}>
-                  <span>#</span>
-                  {tag}
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className={styles.meta}>
+          <span className={styles.date}>{formatDate(post.date)}</span>
+          {post.tags.map((tag) => (
+            <span key={tag} className={styles.tag}>#{tag}</span>
+          ))}
           {post.langs.length > 1 && (
             <div className={styles.langSwitcher}>
               {post.langs.map((l) => (
@@ -83,27 +64,32 @@ const PostPage: NextPage<Props> = ({ params }) => {
                   href={`/posts/${l}/${post.slug}`}
                   className={`${styles.langBtn} ${l === params.lang ? styles.langBtnActive : ""}`}
                 >
-                  {LANG_LABELS[l] ?? l.toUpperCase()}
+                  {l.toUpperCase()}
                 </Link>
               ))}
             </div>
           )}
         </div>
-        <div className={styles.postCover}>
-          <Image
-            src={post.cover}
-            alt={post.title}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
+
+        <h1 className={styles.title}>{post.title}</h1>
+
+        {post.cover && (
+          <div className={styles.cover}>
+            <Image
+              src={post.cover}
+              alt={post.title}
+              fill
+              objectFit="cover"
+            />
+          </div>
+        )}
       </div>
 
-      <div className={styles.postBlock}>
-        <div className={styles.postContent}>
-          <Markdown options={markDownToJsxOptions}>{post.content}</Markdown>
-        </div>
+      {/* ── CONTENT ──────────────────────────────────── */}
+      <div className={styles.content}>
+        <Markdown options={markDownToJsxOptions}>{post.content}</Markdown>
       </div>
+
     </div>
   );
 };
